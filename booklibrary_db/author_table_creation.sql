@@ -13,7 +13,7 @@ CREATE TABLE `author` (
 );
 
 /*Data insertion into the table */
-INSERT INTO `client` (`id`,`first_name`,`last_name`,`nationality`) values
+INSERT INTO `author` (`id`,`first_name`,`last_name`,`nationality`) values
 (1, 'Sofia', 'Smith', 'Canada'),
 (2, 'Maria', 'Brown', 'Brazil'),
 (3, 'Elena', 'Martin', 'Mexico'),
