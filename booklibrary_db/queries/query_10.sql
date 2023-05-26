@@ -26,5 +26,6 @@ WHERE id IN (
 -- Theoretically, the user (developer, or not high range) querying the table
 -- doesn't have access to the previous code where the view is created, he/she
 -- just has access to the view; therefore, the previous code has to be 
--- executed before accessing the view 
+-- executed before accessing the view and the following code should be executed
+-- in a separate query file 
 SELECT * FROM books_borrowed_by_more_than_20_percent;
