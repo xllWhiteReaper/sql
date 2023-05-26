@@ -24,7 +24,6 @@ WHERE book.id IN (
         FROM `borrower`
         WHERE YEAR(borrow_date) BETWEEN 2015 AND 2017
         GROUP BY book_id
-        ORDER BY counter DESC
       ) AS top_books
   )
   SELECT book_id
