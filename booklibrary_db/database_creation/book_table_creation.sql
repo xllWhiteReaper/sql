@@ -7,10 +7,10 @@ DROP TABLE IF EXISTS `book`;
 /*Table structure for table `book` */
 CREATE TABLE `book` (
 	id INT PRIMARY KEY,
-    title VARCHAR(255),
-    author_id INT,
-    FOREIGN KEY (author_id) REFERENCES author(id) ON DELETE CASCADE,
-    genre VARCHAR(50)
+  title VARCHAR(255),
+  author_id INT,
+  FOREIGN KEY (author_id) REFERENCES author(id) ON DELETE CASCADE,
+  genre VARCHAR(50)
 );
 
 /*Data insertion into the table */
