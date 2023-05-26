@@ -24,5 +24,4 @@ SELECT CONCAT(first_name, ' ', last_name),
 YEAR(NOW())-year_of_birth,
 "YOUNGEST"
 FROM client, max_year
-WHERE year_of_birth = max_year.max_year
-;
+WHERE year_of_birth = max_year.max_year;
