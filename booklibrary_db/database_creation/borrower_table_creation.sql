@@ -321,5 +321,11 @@ INSERT INTO `borrower` (`borrow_id`,`client_id`,`book_id`,`borrow_date`) values
   (299, 26, 23, '2016-03-01'),
   (300, 49, 23, '2016-10-25');
 
+-- We create an index in the borrower_id field because it is often used when joining,
+-- also, we don't use indexes in other columns because they already have their own or aren't 
+-- that often queried for comparisons
+CREATE INDEX borrower_id_index 
+ON `borrower` (borrow_id);
+
 /*Data retrieval to check if everything is alright */
 SELECT * FROM `borrower`;

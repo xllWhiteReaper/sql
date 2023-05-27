@@ -48,5 +48,9 @@ INSERT INTO `book` (`id`,`title`,`author_id`,`genre`) values
 	(31, 'Participate', 22, 'Society'),
 	(32, 'Positive figures', 3, 'Fiction'); 
 
+-- We create an index in the id field because it is often used when joining 
+CREATE INDEX book_id_index 
+ON `book` (id);
+
 /*Data retrieval to check if everything is alright */
 SELECT * FROM `book`;

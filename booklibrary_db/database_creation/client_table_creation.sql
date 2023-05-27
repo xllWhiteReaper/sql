@@ -96,5 +96,14 @@ INSERT INTO `client` (`id`,`first_name`,`last_name`,`year_of_birth`,`occupation`
 (79, 'Alysha', 'Lambert', 2007, 'Student'),
 (80, 'Maia', 'Grant', 1984, 'School Teacher'); 
 
+-- We create an index in the id field because it is often used when joining,
+-- also, we create an index for the year of birth because there are several 
+-- queries that require age (and therefore the year of birth)
+CREATE INDEX client_id_index 
+ON `client` (id);
+
+CREATE INDEX client_year_of_birth_index 
+ON `client` (year_of_birth);
+
 /*Data retrieval to check if everything is alright */
 SELECT * FROM `client`;

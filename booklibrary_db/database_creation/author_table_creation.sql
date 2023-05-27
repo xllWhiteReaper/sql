@@ -38,5 +38,12 @@ INSERT INTO `author` (`id`,`first_name`,`last_name`,`nationality`) values
 (22, 'Liam', 'Parker', 'Canada'),
 (23, 'Emily', 'Murphy', 'USA'); 
 
+-- We create an index in the author id column because it gets used
+-- pretty often. This is a small table and therefore INDEXES wouldn't
+-- be necessary, but as the assignment tells us to use these, I think 
+-- the best choice for this table is the id 
+CREATE INDEX author_id_index
+ON `author` (id);
+
 /*Data retrieval to check if everything is alright */
 SELECT * FROM `author`;
