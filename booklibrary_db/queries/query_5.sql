@@ -21,5 +21,8 @@ FROM (
   ORDER BY counter ASC
   LIMIT 5
 ) AS top_authors
+-- then we make joins to get the desired information from other tables 
 JOIN `book` USE INDEX (book_id_index) ON top_authors.book_id = book.id
+-- note that we have to join books because there is no direct connection
+-- between borrower and author
 JOIN `author` USE INDEX (author_id_index) ON book.author_id = author.id; 

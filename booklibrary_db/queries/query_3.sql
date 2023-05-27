@@ -17,4 +17,5 @@ SELECT first_name AS "First Name",
 last_name AS "Last Name"
 FROM `client`
 USE INDEX (client_id_index)
+-- selecting only eh borrower between a specific date 
 WHERE id IN (SELECT client_id FROM borrowers_for_specific_date);

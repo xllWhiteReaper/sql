@@ -19,6 +19,7 @@ FROM (
   INNER JOIN `book` USE INDEX (book_id_index) ON borrower.book_id = book.id
   WHERE client.year_of_birth BETWEEN 1970 AND 1980
 ) AS sub_query
+-- counting for every genre and limit to just 5 
 GROUP BY genre
 ORDER BY genre_counter DESC
 LIMIT 5;

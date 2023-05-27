@@ -14,6 +14,7 @@ WITH occupations AS (
   INNER JOIN `client` ON borrower.client_id = client.id
   WHERE YEAR(borrow_date) = 2016
 )
+-- ordering in descendent way to get the top 5 
 SELECT 
 occupation AS "Occupation", 
 COUNT(occupation) AS "Counter"
