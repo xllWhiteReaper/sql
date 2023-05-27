@@ -14,8 +14,9 @@ FROM (
   -- and keeping the important columns (We just keep the genres)
   SELECT book.genre
   FROM `borrower`
-  INNER JOIN `client` ON borrower.client_id = client.id
-  INNER JOIN `book` ON borrower.book_id = book.id
+  USE INDEX (borrower_id_index)
+  INNER JOIN `client` USE INDEX (client_id_index, client_year_of_birth_index) ON borrower.client_id = client.id
+  INNER JOIN `book` USE INDEX (book_id_index) ON borrower.book_id = book.id
   WHERE client.year_of_birth BETWEEN 1970 AND 1980
 ) AS sub_query
 GROUP BY genre

@@ -10,6 +10,7 @@ WITH occupations AS (
   -- on the year 2016
   SELECT occupation
   FROM `borrower`
+  USE INDEX (borrower_date_index)
   INNER JOIN `client` ON borrower.client_id = client.id
   WHERE YEAR(borrow_date) = 2016
 )

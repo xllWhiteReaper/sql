@@ -17,7 +17,8 @@ WITH frequency_table AS (
     FROM `borrower`
     GROUP BY client_id
   ) AS borrower_count
-  JOIN `client` ON borrower_count.client_id = client.id
+  JOIN `client` USE INDEX (client_id_index, client_year_of_birth_index) 
+  ON borrower_count.client_id = client.id
 )
 -- Then we find the average by grouping by ages 
 SELECT age AS "Age",

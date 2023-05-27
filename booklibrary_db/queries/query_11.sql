@@ -15,6 +15,7 @@ WITH frequency_table AS (
   FROM (
     SELECT MONTHNAME(borrow_date) AS month_name
     FROM `borrower`
+    USE INDEX (borrower_date_index)
     WHERE YEAR(borrow_date) = 2017
   ) AS sub_query
   GROUP BY month_name

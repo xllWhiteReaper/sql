@@ -17,7 +17,7 @@ WITH frequency_table AS (
     FROM `borrower`
     GROUP BY client_id
   ) AS borrower_count
-  JOIN `client` ON borrower_count.client_id = client.id
+  JOIN `client` USE INDEX (client_id_index) ON borrower_count.client_id = client.id
 )
 SELECT occupation AS "Occupation", 
 ROUND(AVG(borrow_count), 3) AS "Average"

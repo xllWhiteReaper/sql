@@ -323,9 +323,12 @@ INSERT INTO `borrower` (`borrow_id`,`client_id`,`book_id`,`borrow_date`) values
 
 -- We create an index in the borrower_id field because it is often used when joining,
 -- also, we don't use indexes in other columns because they already have their own or aren't 
--- that often queried for comparisons
+-- that often queried for comparisons, the borrower_date also is used often
 CREATE INDEX borrower_id_index 
 ON `borrower` (borrow_id);
+
+CREATE INDEX borrower_date_index 
+ON `borrower` (borrow_date);
 
 /*Data retrieval to check if everything is alright */
 SELECT * FROM `borrower`;

@@ -24,6 +24,6 @@ WITH author_genres AS (
 SELECT 
 first_name AS "First Name",
 last_name AS "Last Name"
-FROM `author`
+FROM `author` USE INDEX (author_id_index)
 JOIN `author_genres` ON author_genres.author_id = author.id
 WHERE author_genres.number_of_genres > 1;

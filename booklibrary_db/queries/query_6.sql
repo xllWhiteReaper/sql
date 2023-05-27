@@ -11,6 +11,7 @@ title AS "Book Title",
 author_id AS "Author Id",
 genre AS "Book Genre"
 FROM `book`
+USE INDEX (book_id_index)
 WHERE book.id IN (
   -- We create a sub query to get the book id of the most borrowed one in the period
   -- 2015 - 2017
@@ -22,6 +23,7 @@ WHERE book.id IN (
         book_id, 
         COUNT(book_id) AS counter
         FROM `borrower`
+        USE INDEX (borrower_date_index)
         WHERE YEAR(borrow_date) BETWEEN 2015 AND 2017
         GROUP BY book_id
       ) AS top_books

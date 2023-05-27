@@ -15,10 +15,11 @@ FROM (
   book_id, 
   COUNT(book_id) AS counter
   FROM `borrower`
+  USE INDEX (borrower_date_index)
   WHERE YEAR(borrow_date) BETWEEN 2015 AND 2017
   GROUP BY book_id
   ORDER BY counter ASC
   LIMIT 5
 ) AS top_authors
-JOIN `book` ON top_authors.book_id = book.id
-JOIN `author` ON book.author_id = author.id; 
+JOIN `book` USE INDEX (book_id_index) ON top_authors.book_id = book.id
+JOIN `author` USE INDEX (author_id_index) ON book.author_id = author.id; 
